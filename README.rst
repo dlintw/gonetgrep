@@ -15,6 +15,9 @@ others.  So, this project won't show up a finished code
 at once.  Intead, I'll keep the my learning experiences
 on **Dummy Days** sections and github.com.
 
+BTW, I'm not native English speaker.  I'm a newbie of Go.
+There are many bugs exist on my code or grammars, please notice me.
+
 Usage
 ^^^^^
 
@@ -41,9 +44,20 @@ I use archlinux.  It is easy::
   yaourt -S gocode-git # suggest strongly for vim users
   # if gocode-git install failed, just forgive it.
 
-Day 2
-=====
+Subjects in the Future
+======================
 
-Subject: compile hello world
+* compile hello world by Make.inc (pkg:flag)
+* display usage depend on locale 
+* read file line by line (pkg:io)
+* find keyword and display line number (pkg:bytes,regexp)
+* get web page (pkg:http)
+* store to file (pkg:path)
+* get multiple web page by goroutine (pkg:sync)
+* store history into database (pkg:sqlite)
+* get web pages through multiple agents (pkg:gob)
+* build test case (pkg:testing)
+* benchmark the code
+* balance load of bottleneck
 
 .. vim:set sw=2 ts=2 et sta:
