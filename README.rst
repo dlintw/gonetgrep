@@ -59,5 +59,6 @@ Subjects in the Future
 * build test case (pkg:testing)
 * benchmark the code
 * balance load of bottleneck
+* prevent hardware fail by architecture
 
 .. vim:set sw=2 ts=2 et sta:
