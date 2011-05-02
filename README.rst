@@ -56,6 +56,7 @@ Subjects in the Future
 * get multiple web page by goroutine (pkg:sync)
 * store history into database (pkg:sqlite)
 * get web pages through multiple agents (pkg:gob)
+* show web robots's status on web
 * build test case (pkg:testing)
 * benchmark the code
 * balance load of bottleneck
