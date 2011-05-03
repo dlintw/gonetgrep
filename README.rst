@@ -99,6 +99,7 @@ Question
 1. how to write long line string?
 
 2. why 'git ci' can not check in but 'git ci -a' can?
+   I mean why I should 'git add foo' before my 'git ci' even when I just modify them.
 
 time: Wed May  4 06:26:54 ~ 07:33:02 CST 2011
 
