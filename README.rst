@@ -21,9 +21,14 @@ There are many bugs exist on my code or grammars, please notice me.
 Usage
 ^^^^^
 
-gonetgrep [options] <keyword> <url> [<url> ...]
+I define the usage here::
 
-Grep keyword in multiple web pages.
+  gonetgrep [options] <keyword> <url> [<url> ...]
+
+  Grep keyword in multiple web pages.
+
+  options:
+    -t <num> 0: without parse table, 1:first table only
 
 Dummy Days
 ^^^^^^^^^^
@@ -33,21 +38,46 @@ This is the section of my experience.
 Day 1
 =====
 
-Subject: install Go
+Subject: install Go's develop environment
 
 In fact, I don't like the name of this language.
 I would like it named as 'golang' which is more searchable.
 
-I use archlinux.  It is easy::
+I use archlinux.  It is easy to install multiple newest packages::
 
   yaourt -S go-hg  # Google Go
+
+  # optional packages
   yaourt -S gocode-git # suggest strongly for vim users
-  # if gocode-git install failed, just forgive it.
+  # if gocode-git install failed, just skip it, I'll explain how to fix it.
+  yaourt -S git mercurial # source code version control for goinstall
+  yaourt -S vi vim-diff # my favorite editor
+  yaourt -S docutils # convert this document into web page form (HTML).
+
+By the way, I suggest to open a github_ account, and learn how to use 
+git on github. And try to write document in rst_ format.
+
+.. _github: https://github.com
+.. _rst: http://docutils.sourceforge.net/docs/user/rst/quickref.html
+
+Day 2
+=====
+Suject: compile hello world by Make.inc (cmd:gofmt pkg:flag)
+
+Golang provide a **gofmt** utility to make same coding style.
+We could try to copy the Makefile from gofmt::
+  
+  find /opt/go |grep gofmt
+
+  mkdir gonetgrep
+  cd gonetgrep
+  cp /opt/go/src/cmd/gofmt/Makefile .
+
+time: Wed May  4 06:26:54 CST 2011 ~
 
 Subjects in the Future
 ======================
 
-* compile hello world by Make.inc (pkg:flag)
 * display usage depend on locale 
 * read file line by line (pkg:io)
 * find keyword and display line number (pkg:bytes,regexp)
