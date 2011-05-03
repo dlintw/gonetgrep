@@ -57,6 +57,13 @@ I use archlinux.  It is easy to install multiple newest packages::
 By the way, I suggest to open a github_ account, and learn how to use 
 git on github. And try to write document in rst_ format.
 
+You can read Golang's document without network by::
+
+  godoc -http=:6060  # and launch in browser by http://localhost:6060
+  godoc godoc # read more usage by this builtin document tool
+
+In fact, if you use brand new version of Go.  You should reference package manul by this method instead of just read the offical site's manual.  Because official site only keep stable version's package document.
+
 .. _github: https://github.com
 .. _rst: http://docutils.sourceforge.net/docs/user/rst/quickref.html
 
@@ -73,7 +80,27 @@ We could try to copy the Makefile from gofmt::
   cd gonetgrep
   cp /opt/go/src/cmd/gofmt/Makefile .
 
-time: Wed May  4 06:26:54 CST 2011 ~
+We could reference /opt/go/src/cmd/gofmt/gofmt.go to build our gonetgrep.go.
+If gocode installed.  Here is the most important tip::
+
+  package main
+  import "flag"  // after declare the flag
+  func main() {  // note Go's style, brace { should not in next line
+    flag. // press Ctrl-X, Ctrl-O then Ctrl-P or Ctrl-N here
+  }
+
+Press Ctrl-X then Ctrl-O after type **flag.**, you could see flag's members.
+If you want to know the usage of member functions, just look godoc.
+To clear the automatic typing code, you could try Ctrl-P again.
+
+Question
+--------
+
+1. how to write long line string?
+
+2. why 'git ci' can not check in but 'git ci -a' can?
+
+time: Wed May  4 06:26:54 ~ 07:33:02 CST 2011
 
 Subjects in the Future
 ======================
