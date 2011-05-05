@@ -14,15 +14,17 @@ var gExitCode = 0
 
 func usage() {
 	// instead of Fprintf, try to use Fprintln, it is easier and powerful
-	fmt.Fprintln(os.Stderr, "usage: gonetgrep [flags] <key> url [url...]"
-		"\nGrep keyword in multiple web pages."
-		)
+	fmt.Fprintln(os.Stderr, "usage: gonetgrep [flags] <key> url [url...]"+
+		"\nGrep keyword in multiple web pages.")
 	flag.PrintDefaults()
 	os.Exit(2)
 }
 
-func main {
+func main() {
 	flag.Parse()
+	if flag.NArg() < 1 {
+		usage()
+	}
 	println("This is first code Go support utf-8, 也可以用中文寫")
-	os.Exit(g_exitcode) // go can not return code to shell directly
+	os.Exit(gExitCode) // go can not return code to shell directly
 }

@@ -1,2 +1,5 @@
 README.html
 *.swp
+*.orig
+*.[568]
+gonetgrep
