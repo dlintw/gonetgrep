@@ -13,7 +13,8 @@ This project is just for a sample to show Go's power.
 The best method to learn a new language is to try to teach
 others.  So, this project won't show up a finished code 
 at once.  Intead, I'll keep the my learning experiences
-on `Dummy Days`_ section of this document and the progress of this program on https://github.com/dlintw/gonetgrep.
+on `Dummy Days`_ section of this document and the progress of this program 
+on https://github.com/dlintw/gonetgrep.
 
 BTW, I'm not a native English speaker.  I'm a newbie of Go.
 There are many bugs exist on my code or grammars, please notice me.
@@ -42,7 +43,7 @@ I stduy Golang by following methods:
 1. Read document_ . (note: the Specification is also must read document)
 2. Search question on golang-nuts_.
 3. Find similar package on `project dashboard`_ and `packages dashboard`_.
-4. Ask question on golang-nuts.
+4. Ask questions on golang-nuts.
 
 .. _document: http://golang.org/doc/docs.html
 .. _golang-nuts: http://groups.google.com/group/golang-nuts
@@ -52,8 +53,8 @@ I stduy Golang by following methods:
 You could check out the source code in different stage. The method is describe
 in `Version Control System`_.
 
-Setup develop environment (cmd:godoc)
-=====================================
+D1 - Setup develop environment (cmd:godoc)
+==========================================
 
 In fact, I don't like the name of this language.
 I would like it named as 'golang' which is more searchable.
@@ -77,7 +78,9 @@ You can read Golang's document without network by godoc_ ::
   godoc -http=:6060  # and launch in browser by http://localhost:6060
   godoc godoc # read more usage by this builtin document tool
 
-In fact, if you use brand new version of Go.  You should reference package manul by this method instead of just read the offical site's manual.  Because official site only keep stable version's package document.
+In fact, if you use brand new version of Go.  You should reference package 
+manual by this method instead of just read the offical site's manual.  
+Because official site only keep stable version's package document.
 
 By the way, I suggest to open a github_ account, and learn how to use 
 git on github. And try to write document in rst_ format.
@@ -86,8 +89,8 @@ git on github. And try to write document in rst_ format.
 .. _rst: http://docutils.sourceforge.net/docs/user/rst/quickref.html
 .. _godoc: http://golang.org/cmd/godoc
 
-Compile hello world (cmd:gofmt pkg:flag)
-========================================
+D2 - Compile hello world (cmd:gofmt pkg:fmt,flag,os)
+====================================================
 
 Suject: compile hello world by Make.inc (cmd:gofmt pkg:fmt,flag,os)
 
@@ -113,24 +116,53 @@ Press Ctrl-X then Ctrl-O after type **flag.**, you could see flag's members.
 If you want to know the usage of member functions, just look godoc.
 To clear the automatic typing code, you could try Ctrl-P again.
 
+A successful programming language should come with a powerful and useful 
+library. 
+
+We use the following package functions.
+
+======== =============
+C        Golang
+printf() fmt.Println()
+getopt() flag.Parse()
+argv()   flag.Args()
+exit()   os.Exit()
+======== =============
+
 
 Q&A
 ---
 
 1. How to write long line string in [`fd2a code`_]?  
 
-Ans. use back single quote or **+** operator [#ca]_, this bug will cause the 
+Ans. use back single quote or **+** operator (`Thank Arlen and PeterGo`_), this bug will cause the 
 following warning::
 
   gonetgrep.go:17: syntax error: unexpected semicolon or newline, expecting )
 
-
+This bug is fixed in [15dd_].
 
 .. _fd2a code: https://github.com/dlintw/gonetgrep/blob/fd2a/gonetgrep.go#L18
-.. [#ca] http://groups.google.com/group/golang-nuts/browse_thread/thread/a995c49934392b27
-
+.. _Thank Arlen and PeterGo: http://groups.google.com/group/golang-nuts/browse_thread/thread/a995c49934392b27
+.. _15dd: https://github.com/dlintw/gonetgrep/commit/15dd
 
 .. code time: Wed May  4 06:26:54 ~ 07:33:02 CST 2011
+
+D3- Display Usage Depend on Locale (pkg:utf8,go-iconv)
+======================================================
+
+Golang suggest we use utf-8 as default.  So, if we want to display string,
+we should code in utf-8.  For different terminal codec environment, we require
+convert from utf-8 to encoding locale. There is no default convert package
+in go package, so, I searched in http://godashboard.appspot.com/package.
+I found there is two go-iconv package, choose the max count package and install::
+
+  goinstall "github.com/sloonz/go-iconv"  # this line failed
+  goinstall "github.com/sloonz/go-iconv/src" # it works
+
+The finished code in
+
+.. code time: Sat May  7 12:16:15~14:00 CST 2011
 
 Appendix
 ^^^^^^^^
@@ -198,7 +230,6 @@ TODO
 
 I require help to finish all these jobs. If you can help me. Just fork my source, and notice me to pull your code and document.
 
-* display usage depend on locale 
 * debug code (pkg:log,runtime)
 * read test code of official packages (pkg:testing)
 * read file line by line (pkg:io)
