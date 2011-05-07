@@ -160,9 +160,14 @@ I found there is two go-iconv package, choose the max count package and install:
   goinstall "github.com/sloonz/go-iconv"  # this line failed
   goinstall "github.com/sloonz/go-iconv/src" # it works
 
-The finished code in
+The finished code in [f028_].
 
-.. code time: Sat May  7 12:16:15~14:00 CST 2011
+There is another method to convert go-chartset, maybe you could write
+example for me.
+
+.. _f028: https://github.com/dlintw/gonetgrep/commit/f028
+
+.. code time: Sat May  7 12:16:15~14:10 CST 2011
 
 Appendix
 ^^^^^^^^
