@@ -164,9 +164,10 @@ The finished code in [f028_].
 
 We could use native Go library charset to solve this problem.
 
-Here is the finished code [].
+Here is the finished code [c567_].
 
 .. _f028: https://github.com/dlintw/gonetgrep/commit/f028
+.. _c567: https://github.com/dlintw/gonetgrep/commit/c567
 
 .. code time: Sat May  7 12:16:15~14:10 CST 2011
 
