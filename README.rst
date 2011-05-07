@@ -162,8 +162,9 @@ I found there is two go-iconv package, choose the max count package and install:
 
 The finished code in [f028_].
 
-There is another method to convert go-chartset, maybe you could write
-example for me.
+We could use native Go library charset to solve this problem.
+
+Here is the finished code [].
 
 .. _f028: https://github.com/dlintw/gonetgrep/commit/f028
 

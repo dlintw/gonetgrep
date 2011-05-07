@@ -5,7 +5,9 @@ import (
 	"flag"
 	"os"
 	"strings"
-	iconv "github.com/sloonz/go-iconv/src"
+	"go-charset.googlecode.com/hg/charset"
+	"bytes"
+	"io"
 )
 
 // for more command line options example, ref: /opt/go/src/cmd/gofmt/gofmt.go
@@ -14,14 +16,35 @@ var gIsGrepTable = flag.Int("t", 0,
 
 var gExitCode = 0
 
-func utf82big5(s string) string {
-	codec, err := iconv.Open("big5", "utf-8") // from utf8 to big5
-	if err != nil {
-		println(err)
+var gChTransTo charset.Translator
+
+func init() {
+	cs := charset.Info("big5")
+	if cs == nil {
+		println("Err: big5 charset not found")
 		os.Exit(1)
 	}
-	defer codec.Close()
-	out, err := codec.Conv(s)
+	var err os.Error
+	if cs.TranslatorTo == nil {
+		println("Err: utf8 to big5 translator not implement")
+		os.Exit(1)
+	}
+	gChTransTo, err = cs.TranslatorTo()
+        if err != nil {
+                println("Err: making translator from %q: %v", cs, err)
+		os.Exit(1)
+        }
+}
+
+func utf82big5(in string) string {
+        var buf bytes.Buffer
+        r := charset.NewTranslatingReader(strings.NewReader(in), gChTransTo)
+        _, err := io.Copy(&buf, r)
+        if err != nil {
+		println("Err: translating from %s: %v", in, err)
+		os.Exit(1)
+        }
+        out := string(buf.Bytes())
 	return out
 }
 
