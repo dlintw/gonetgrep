@@ -35,9 +35,9 @@ func usage() {
 			fmt.Fprintln(os.Stderr, s)
 		}
 	} else {
-	// instead of Fprintf, try to use Fprintln, it is easier and powerful
-	fmt.Fprintln(os.Stderr, "usage: gonetgrep [flags] <key> url [url...]"+
-		"\nGrep keyword in multiple web pages.")
+		// instead of Fprintf, try to use Fprintln, it is easier and powerful
+		fmt.Fprintln(os.Stderr, "usage: gonetgrep [flags] <key> url [url...]"+
+			"\nGrep keyword in multiple web pages.")
 	}
 	flag.PrintDefaults()
 

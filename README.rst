@@ -6,9 +6,10 @@ gonetgrep
 Introduction
 ^^^^^^^^^^^^
 
-I found Google GO is a interesting programming language.
+I found Google GO is a `interesting programming language`_.
 I guess, it is very useful in network data mining.
 This project is just for a sample to show Go's power.
+.. _interesting programming language: http://www.theregister.co.uk/2011/05/05/google_go/
 
 The best method to learn a new language is to try to teach
 others.  So, this project won't show up a finished code 
@@ -59,16 +60,22 @@ D1 - Setup develop environment (cmd:godoc)
 In fact, I don't like the name of this language.
 I would like it named as 'golang' which is more searchable.
 
-I use archlinux_.  It is easy to install multiple newest packages by yaourt_::
+I use archlinux_.  It is easy to install multiple newest packages by 
+pacman or yaourt_::
 
-  yaourt -S go-hg  # Google Go
+  pacman -S go  # Google Go, the binary package still have godoc bug
+  yaourt -S go-hg  # Google Go, I prefer this, it install on /opt/go
 
   # optional packages
   yaourt -S gocode-git # suggest strongly for vim users
   # if gocode-git install failed, just skip it, I'll explain how to fix it.
-  yaourt -S git mercurial # source code version control for goinstall
-  yaourt -S vi vim-diff # my favorite editor
-  yaourt -S docutils # convert this document into web page form (HTML).
+  pacman -S git mercurial # source code version control for goinstall
+  pacman -S vi vim-dirdiff # my favorite editor
+  pacman -S docutils # convert this document into web page form (HTML).
+
+Also instead of yaourt you might be instrested in
+https://github.com/str1ngs/gur . Which is a aur helper written in go.
+Its still work in progress but fun to use.
 
 .. _archlinux: http://www.archlinux.org
 .. _yaourt: https://wiki.archlinux.org/index.php/Yaourt
@@ -157,19 +164,26 @@ convert from utf-8 to encoding locale. There is no default convert package
 in go package, so, I searched in http://godashboard.appspot.com/package.
 I found there is two go-iconv package, choose the max count package and install::
 
-  goinstall "github.com/sloonz/go-iconv"  # this line failed
-  goinstall "github.com/sloonz/go-iconv/src" # it works
+  goinstall github.com/sloonz/go-iconv  # this line failed
+  goinstall github.com/sloonz/go-iconv/src # it works
+  goinst -clean github.com/sloonz/go-iconv/src # it works when you install by go-hg
 
-The finished code in [f028_].
+The finished code in [f028_]. To let its format beautiful with default format::
+  
+  gofmt -w .
 
-We could use native Go library charset to solve this problem.
-
-Here is the finished code [c567_].
+We could use 3rd party charset library which is implemented by Go to solve this problem. Here is the finished code [c567_].
 
 .. _f028: https://github.com/dlintw/gonetgrep/commit/f028
 .. _c567: https://github.com/dlintw/gonetgrep/commit/c567
 
 .. code time: Sat May  7 12:16:15~14:10 CST 2011
+
+Q&A
+----
+
+1. Is there good method to detect locale instead of check environment variable?
+ 
 
 Appendix
 ^^^^^^^^
