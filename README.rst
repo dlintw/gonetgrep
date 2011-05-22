@@ -189,15 +189,16 @@ D4 - debug code (pkg:log,runtime)
 =================================
 There are several methods could debug your code. 
 
-Add debug code in source
-------------------------
-To debug the code, we could use 'log' package::
+Add debug code by log package
+-----------------------------
+To debug the code, we could use 'log' package, as [9211_]::
 
   $ ./gonetgrep foo
   2011/05/22 16:01:30 gonetgrep.go:54: before
   This is first code Go support utf-8, 也可以用中文寫
   2011/05/22 16:01:30 gonetgrep.go:56: after
 
+.. _9211: https://github.com/dlintw/gonetgrep/tree/9211
 
 Appendix
 ^^^^^^^^
