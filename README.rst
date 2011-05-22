@@ -185,6 +185,20 @@ Q&A
 1. Is there good method to detect locale instead of check environment variable?
  
 
+D4 - debug code (pkg:log,runtime)
+=================================
+There are several methods could debug your code. 
+
+Add debug code in source
+------------------------
+To debug the code, we could use 'log' package::
+
+  $ ./gonetgrep foo
+  2011/05/22 16:01:30 gonetgrep.go:54: before
+  This is first code Go support utf-8, 也可以用中文寫
+  2011/05/22 16:01:30 gonetgrep.go:56: after
+
+
 Appendix
 ^^^^^^^^
 
@@ -232,6 +246,7 @@ Ans.  git's process force you separate a large patch into small pieces by manual
 
 .. [#ga] http://plasmasturm.org/log/gitidxpraise>
  
+
 ReStructuredText
 ================
 
@@ -251,8 +266,6 @@ TODO
 
 I require help to finish all these jobs. If you can help me. Just fork my source, and notice me to pull your code and document.
 
-* debug code (pkg:log,runtime)
-* read test code of official packages (pkg:testing)
 * read file line by line (pkg:io)
 * find keyword and display line number (pkg:bytes,regexp)
 * get web page (pkg:http)

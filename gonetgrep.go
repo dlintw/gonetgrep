@@ -6,6 +6,7 @@ import (
 	"os"
 	"strings"
 	iconv "github.com/sloonz/go-iconv/src"
+	"log"
 )
 
 // for more command line options example, ref: /opt/go/src/cmd/gofmt/gofmt.go
@@ -49,6 +50,9 @@ func main() {
 	if flag.NArg() < 1 {
 		usage()
 	}
+	log.SetFlags(log.Flags() | log.Lshortfile)
+	log.Println("before")
 	println("This is first code Go support utf-8, 也可以用中文寫")
+	log.Println("after")
 	os.Exit(gExitCode) // go can not return code to shell directly
 }
